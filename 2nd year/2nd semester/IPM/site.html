@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>BarISTa</title>
+    <!-- jQuerry imports -->
+    <link rel="stylesheet" href="jquery/jquery-ui.css">
+    <script type="text/javascript" src="jquery/external/jquery/jquery.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui.js"></script>
+    <script type="text/javascript" src="jquery/jquery-circle-progress-master/dist/circle-progress.js"></script>
+    <link type="text/css" rel="stylesheet" href="jquery/jquery-dropdown/jquery.dropdown.css" />
+    <script type="text/javascript" src="jquery/jquery-dropdown/jquery.dropdown.js"></script>
+    <!-- My imports -->
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <script type="text/javascript" src="scripts/script.js"></script>
+    <script type="text/javascript" src="scripts/shop.js"></script>
+    <script type="text/javascript" src="scripts/music.js"></script>
+    <script type="text/javascript" src="scripts/message.js"></script>
+    <script type="text/javascript" src="scripts/tv.js"></script>
+    <script type="text/javascript" src="scripts/phone.js"></script>
+    <script type="text/javascript" src="scripts/photo.js"></script>
+    <script type="text/javascript" src="scripts/help.js"></script>
+    <meta charset="utf-8"/>
+
+</head>
+<body background="imgs/background.jpg" onclick="unlock()">
+    <!-- Clock Widget -->
+    <div id="clockWidget">
+        <h1 id="clock"></h1>
+        <div id="weather">
+        <img id="sun" src="imgs/weather.png">
+        <div id="Temperature">
+            <p>23ºC</p>
+        </div>
+        </div>
+        <div id="Place">
+            <br>Alameda
+        </div>
+    </div>
+    <div id="lockScreen">
+        <h1 id="lockclock"></h1>
+        <div id="lockweather">
+        <img id="locksun" src="imgs/weather.png">
+        <div id="lockTemperature">
+            <p>23ºC</p>
+        </div>
+        </div>
+        <br>
+        <div id="lockPlace">
+            <br>Alameda
+        </div>
+        <div id="Touch">
+            <br> Toque no ecrã para começar
+        </div>
+    </div>
+    <div class="musicWidget">
+      <span id="nameMusicWid">A reproduzir: </span>
+      <div class="musicControl" id="musicControlWid">
+          <img class ="musicChange" src="imgs/previous.png" onclick="prevSong()">
+          <img class="imgPlayer" src="imgs/play.png" onclick="playMusic()">
+          <img class ="musicChange"  src="imgs/next.png" onclick="nextSong()">
+      </div>
+    </div>
+
+
+    <img class="help" src="imgs/help.png" onclick="help()"/>
+
+    <div class="helpDiv" >
+      <div class="helpTab">
+        <p class="helpP">Ajuda</p>
+        <img src="imgs/exit.png" onclick="closeHelp()">
+      </div>
+      <div class="helpMessage">
+        <p>
+          Estes icons permitem aceder às funcionalidades da mesa.
+          Ao clicar em qualquer um destes, será aberta a janela com a funcionalidade correspondente à figura.
+        </p>
+      </div>
+      <img src="imgs/right-arrow.png" class="prevHelp" onclick="nextHelp()"/>
+      <img src="imgs/left-arrow.png" class="nextHelp" onclick="prevHelp()"/>
+    </div>
+
+  <!-- Hidden Windows -->
+    <div id="comidaWindow" class="window">
+        <ul id="foodTab" class="">
+            <li class="foodTabs" onclick="changeSubMenu(this, 'foodTab'), toggleSubMenu('sugestion')"><p>Sugestões</p></li>
+            <li class="foodTabs" onclick="changeSubMenu(this, 'foodTab'), toggleSubMenu('drinkAlchool')"><p>Bebidas alcoolicas</p></li>
+            <li class="foodTabs" onclick="changeSubMenu(this, 'foodTab'), toggleSubMenu('drinkNonAlchool')"><p>Bebidas não alcoolicas</p></li>
+            <li class="foodTabs" onclick="changeSubMenu(this, 'foodTab'), toggleSubMenu('food')"><p>Comida</p></li>
+            <li class="foodTabs">
+                <div class= "search">
+		           <img src="imgs/lupa.png">
+                   <input type="text" placeholder="Pesquisar..." onkeyup="search(this)" onclick="clearSearch(this), showKeyboard()"/>
+                </div>
+            </li>
+            <li id="closeButton"><img src="imgs/exit.png" onclick="closeWindow('comidaWindow')"></li>
+        </ul>
+        <div id="content">
+            <div class="productDiv">
+                <div id="sugestion" class="products">
+                    <div class="product">
+                        <img src="imgs/vodka-laranja.jpg" onclick='addProduct("Vodka laranja", 5)'>
+                        <div class="info">
+                            <h1 id="produto">Vodka laranja - 5 €</h1>
+                            <h1 id="descricao">Vodka, laranja, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Cerveja", 1)'>
+                        <img src="imgs/superbock.jpg">
+                        <div class="info">
+                            <h1 id="produto">Cerveja - 1 €</h1>
+                            <h1 id="descricao">SuperBock</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Coca-Cola", 2.5)'>
+                        <img src="imgs/cocacola.jpg">
+                        <div class="info">
+                            <h1 id="produto">Coca-Cola - 2,5 €</h1>
+                            <h1 id="descricao">Refrigerante</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Batido Banana", 5)'>
+                        <img src="imgs/batidobanana.jpg">
+                        <div class="info">
+                            <h1 id="produto">Batido banana - 5 €</h1>
+                            <h1 id="descricao">Leite, açucar, banana, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Cocktail Casa", 7)'>
+                        <img src="imgs/cocktail.jpg">
+                        <div class="info">
+                            <h1 id="produto">Cocktail casa - 7 €</h1>
+                            <h1 id="descricao">Vodka, morango, rum,</p>
+                            triple sec,</p>
+                            ingrediente especial</p></h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Batido Morango", 5)'>
+                        <img src="imgs/batidomorango.jpg">
+                        <div class="info">
+                            <h1 id="produto">Batido Morango - 5 €</h1>
+                            <h1 id="descricao">Morango, leite, açucar, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Hamburger", 10)'>
+                        <img src="imgs/hamburguer.jpg">
+                        <div class="info">
+                            <h1 id="produto">Hamburguer - 10 €</h1>
+                            <h1 id="descricao">Pão de hamburguer,</p>
+                            carne de vaca,</p>
+                            batata frita, alface</p>
+                            molho da casa, bacon </p></h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Tosta ovo", 4.5)'>
+                        <img src="imgs/tosta.jpeg">
+                        <div class="info">
+                            <h1 id="produto">Tosta ovo - 4,5 €</h1>
+                            <h1 id="descricao">Pão caseiro, queijo,</p>
+                            alface, batata frita</p>
+                            ovo, molho da casa</p></h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="drinkAlchool" class="products">
+                    <div class="product" onclick='addProduct("Cerveja", 1)'>
+                        <img src="imgs/superbock.jpg">
+                        <div class="info">
+                            <h1 id="produto">Cerveja - 1 €</h1>
+                            <h1 id="descricao">SuperBock</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Sidra", 1.5)'>
+                        <img src="imgs/somersby.jpg">
+                        <div class="info">
+                            <h1 id="produto">Sidra - 1,5 €</h1>
+                            <h1 id="descricao">Somersby</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Whiskey", 8)'>
+                        <img src="imgs/jack.jpg">
+                        <div class="info">
+                            <h1 id="produto">Whiskey - 8 €</h1>
+                            <h1 id="descricao">Jack Daniels</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Vodka laranja", 5)'>
+                        <img src="imgs/vodka-laranja.jpg">
+                        <div class="info">
+                            <h1 id="produto">Vodka laranja - 5 €</h1>
+                            <h1 id="descricao">Vodka, laranja, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Rum Cola", 6)'>
+                        <img src="imgs/rum cola.jpg">
+                        <div class="info">
+                            <h1 id="produto">Rum Cola - 6 €</h1>
+                            <h1 id="descricao">Rum Bacardi, Coca-Cola, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Cocktail Casa", 7)'>
+                        <img src="imgs/cocktail.jpg">
+                        <div class="info">
+                            <h1 id="produto">Cocktail casa - 7 €</h1>
+                            <h1 id="descricao">Vodka, morango, rum,</p>
+                            triple sec,</p>
+                            ingrediente especial</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Pina Colada", 7)'>
+                        <img src="imgs/pinacolada.jpg">
+                        <div class="info">
+                            <h1 id="produto">Pina Colada - 7 €</h1>
+                            <h1 id="descricao">Rum Bacardi, leite de coco,</p>
+                            suco de ananás, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Margarita", 7)'>
+                        <img src="imgs/margarita.jpg">
+                        <div class="info">
+                            <h1 id="produto">Margarita - 7 €</h1>
+                            <h1 id="descricao">Tequila, sal, suco de limão,</p>
+                            licor de laranja</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="drinkNonAlchool" class="products">
+                    <div class="product" onclick='addProduct("Coca-Cola", 2.5)'>
+                        <img src="imgs/cocacola.jpg">
+                        <div class="info">
+                            <h1 id="produto">Coca-Cola - 2,5 €</h1>
+                            <h1 id="descricao">Refrigerante</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Ice tea", 2.5)'>
+                        <img src="imgs/icetea.jpg">
+                        <div class="info">
+                            <h1 id="produto">Ice tea - 2,5 €</h1>
+                            <h1 id="descricao">Refrigerante</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Sumol", 2.5)'>
+                        <img src="imgs/sumol.jpg">
+                        <div class="info">
+                            <h1 id="produto">Sumol - 2,5 €</h1>
+                            <h1 id="descricao">Refrigerante</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Batido Banana", 5)'>
+                        <img src="imgs/batidobanana.jpg">
+                        <div class="info">
+                            <h1 id="produto">Batido banana - 5 €</h1>
+                            <h1 id="descricao">Leite, açucar, banana, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Batido Ananás", 5)'>
+                        <img src="imgs/batidoananas.jpg">
+                        <div class="info">
+                            <h1 id="produto">Batido Ananás - 5 €</h1>
+                            <h1 id="descricao">Leite, açucar, ananás, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Batido Morango", 5)'>
+                        <img src="imgs/batidomorango.jpg">
+                        <div class="info">
+                            <h1 id="produto">Batido Morango - 5 €</h1>
+                            <h1 id="descricao">Morango, leite, açucar, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Bella ragazza", 5)'>
+                        <img src="imgs/bellaragazza.jpg">
+                        <div class="info">
+                            <h1 id="produto">Bella ragazza - 5 €</h1>
+                            <h1 id="descricao">Sumo de limão, café, </p>
+                            Coca-Cola, gelo</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Cocktail portugal", 5)'>
+                        <img src="imgs/cocktailportugal.jpg">
+                        <div class="info">
+                            <h1 id="produto">Cocktail portugal - 5 €</h1>
+                            <h1 id="descricao">Morango, açucar, gelo,</p>
+                            kiwi, puré de manga</h1>
+                        </div>
+                    </div>
+                </div>
+                <div id="food" class="products">
+                    <div class="product" onclick='addProduct("Tosta ovo", 4.5)'>
+                        <img src="imgs/tosta.jpeg">
+                        <div class="info">
+                            <h1 id="produto">Tosta ovo - 4,5 €</h1>
+                            <h1 id="descricao">Pão caseiro, queijo,</p>
+                            alface, batata frita</p>
+                            ovo, molho da casa</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Tosta mista", 4.5)'>
+                        <img src="imgs/mista.jpg">
+                        <div class="info">
+                            <h1 id="produto">Tosta mista - 4,5 €</h1>
+                            <h1 id="descricao">Pão caseiro, queijo,</p>
+                            fiambre, batata frita</p>
+                            molho da casa</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Batatas", 0.5)'>
+                        <img src="imgs/batatafrita.jpg">
+                        <div class="info">
+                            <h1 id="produto">Dose batatas - 0,5 €</h1>
+                            <h1 id="descricao">Batatas fritas</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Tremoços", 0.5)'>
+                        <img src="imgs/tremoços.jpg">
+                        <div class="info">
+                            <h1 id="produto">Dose tremoços - 0,5 €</h1>
+                            <h1 id="descricao">Tremoços</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Azeitonas", 0.5)'>
+                        <img src="imgs/azeitonas.jpg">
+                        <div class="info">
+                            <h1 id="produto">Dose azeitonas - 0,5 €</h1>
+                            <h1 id="descricao">Azeitonas</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Pizza", 10)'>
+                        <img src="imgs/pizza.jpg">
+                        <div class="info">
+                            <h1 id="produto">Pizza casa - 10 €</h1>
+                            <h1 id="descricao">Massa de pizza, queijo,</p>
+                            mozzarela, philadelphia</p>
+                            bacon, chouriço</h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Hamburger", 10)'>
+                        <img src="imgs/hamburguer.jpg">
+                        <div class="info">
+                            <h1 id="produto">Hamburguer - 10 €</h1>
+                            <h1 id="descricao">Pão de hamburguer,</p>
+                            carne de vaca,</p>
+                            batata frita, alface</p>
+                            molho da casa, bacon </h1>
+                        </div>
+                    </div>
+                    <div class="product" onclick='addProduct("Cachorro", 8)'>
+                        <img src="imgs/hotdog.png">
+                        <div class="info">
+                            <h1 id="produto">Cachorro simples - 8 €</h1>
+                            <h1 id="descricao">Pão de chachorro, salsicha,</p>
+                            batata frita, batata palha</p>
+                            molho da casa</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="listShop">
+            </div>
+            <div id="shopConfirm">
+              <div class="total">
+                <p id="total">Total: 0 €</p>
+              </div>
+              <div id="buttonWrapper">
+                <div class="repor" onclick='warningPopUp("clean")'>
+                    <p>Limpar</p>
+                </div>
+                <div class="confirmar" onclick='warningPopUp("confirm")'>
+                    <p>Confirmar</p>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="warningWindow">
+            <div class="textWarning">
+                <span class="spanWarning">yolo</span>
+            </div>
+            <div class="warningButtons">
+                <div class="left" onclick="cancel()">
+                    <span>Não</span>
+                </div>
+                <div class="right" onclick="confirm()">
+                    <span>Sim</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sideBar">
+        <div class="sideList">
+            <div>
+                <p>Pedidos Pendentes</p>
+                <div class="listContent">
+                    <span>Sem pedidos pendentes</span>
+                </div>
+            </div>
+            <div>
+                <p>Conta</p>
+                <div class= "listContent">
+                    <span>Sem produtos Comprados</span>
+                </div>
+
+            </div>
+            <div class="Payment">
+              <span class="TotalPagar">Total a Pagar: 0 €</span>
+              <div class="divPagar" onclick="togglePaymentWindow('paymentWindow')"><span id="clickPagar">Pagar</span></div>
+            </div>
+        </div>
+    </div>
+    <div id="paymentWindow" class="window">
+      <div class="payTitle">
+        <h2>Pagamento</h2>
+      </div>
+      <div class="payText">
+        <h3>Como deseja efectuar o seu pagamento?</h3>
+      </div>
+      <div class="payMenu">
+        <div class="payChoice" onclick="togglepayment()">
+            <img src ="imgs\dinheiro.png">
+            <p>Dinheiro</p>
+        </div>
+        <div class="payChoice" onclick="togglepayment()">
+            <img src ="imgs\atm.png">
+            <p>Multibanco</p>
+        </div>
+        <div class="payChoice" onclick="togglepayment()">
+            <img src ="imgs\telefone.png">
+            <p>Telefone</p>
+        </div>
+      </div>
+      <div class="payTotal">
+         <span class ="TotalPagar" id="TotalPagar">Total a Pagar: 0 €</span>
+      </div>
+      <div class="warningWindow1">
+            <div class="textWarning">
+                <span class="spanWarning1">yolo</span>
+            </div>
+            <div class="warningButtons">
+                <div class="ok" onclick="repor()">
+                    <span>Ok</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="jq-dropdown-1" class="jq-dropdown jq-dropdown-tip" >
+      <ul class="jq-dropdown-menu">
+          <li><a id="orderArt">Artista</a></li>
+          <li><a id="orderAlb">Album</a></li>
+          <li><a id="orderMus">Música</a></li>
+          <li><a id="orderGen">Género</a></li>
+      </ul>
+    </div>
+    <div id="musicaWindow" class="draggable window" >
+        <ul id="musicTab" class="">
+          <li class="musicTabs" onclick="changeSubMenuMusic(this, 'musicTab'), toggleSubMenuMusicas('musicas')"><p>Musicas</p></li>
+          <li class="musicTabs" onclick="changeSubMenuMusic(this, 'musicTab'), toggleSubMenuMusicas('listas')"><p>As tuas listas</p></li>
+          <li class="musicTabs" data-jq-dropdown="#jq-dropdown-1"><p>Ordenar por &#9660</p></li>
+          <li class="musicTabs">
+              <div class= "search">
+                  <img src="imgs/lupa.png">
+                  <input type="text" placeholder="Pesquisar..." onkeyup="musicSearch(this)" onclick="showKeyboard(), clearMusicSearch(this)"/>
+              </div>
+          </li>
+          <li id="closeButtonM"><img src="imgs/exit.png" onclick="closeWindowM('musicaWindow')"></li>
+        </ul>
+        <div class="warningWindow">
+            <div class="textWarning">
+                <span class="spanWarning">yolo</span>
+            </div>
+            <div class="warningButtons">
+                <div class="left" onclick="cancel()">
+                    <span>Não</span>
+                </div>
+                <div class="right" onclick="confirm()">
+                    <span>Sim</span>
+                </div>
+            </div>
+        </div>
+        <div class="musicContent">
+            <div class = "musicDiv" ondragover = "allowDrop(event)">
+                <div id="musicas" class="musicas ml">
+                    <div class="music">
+                        <img class = "musicCover" src="music/anaMalhoa.jpg"  draggable="true" ondragstart="drag(0, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(0, 'turbinada')">
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Turbinada</h1>
+                            <h2 class="nomeArtista">Ana Malhoa</h2>
+                            <h2 class="nomeAlbum">Turbinada - Album</h2>
+                            <h3 class="nomeGenero">Música pimba - Género</h3>
+                        </div>
+                    </div>
+                    <div class="music">
+                        <img class = "musicCover" src="music/rickRoll.png" draggable="true" ondragstart="drag(1, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(1, 'rickRoll')">
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Never Gonna Give You Up</h1>
+                            <h2 class="nomeArtista">Rick Astley</h2>
+                            <h2 class="nomeAlbum">Whenever You Need Somebody - Album</h2>
+                            <h3 class="nomeGenero">Dance-Pop - Género</h3>
+                        </div>
+                    </div>
+                    <div class="music">
+                        <img class = "musicCover" src="music/queen.jpg" draggable="true" ondragstart="drag(2, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(2, 'Bohemian')" >
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Bohemian Rhapsody</h1>
+                            <h2 class="nomeArtista">Queen</h2>
+                            <h2 class="nomeAlbum">A Night at the Opera - Album</h2>
+                            <h3 class="nomeGenero">Rock - Género</h3>
+                        </div>
+                    </div>
+                    <div class="music">
+                        <img class = "musicCover" src="music/epic.jpg"  draggable="true" ondragstart="drag(3, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(3, 'epic')">
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Eurovision</h1>
+                            <h2 class="nomeArtista">Epic Sax Guy</h2>
+                            <h2 class="nomeAlbum">Eurovision - Album</h2>
+                            <h3 class="nomeGenero">Eurovision - Género</h3>
+                        </div>
+                    </div>
+                    <div class="music">
+                        <img class = "musicCover" src="music/kizomba.jpg"  draggable="true" ondragstart="drag(4, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(4, 'kizomba')">
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Tu és a Mulher</h1>
+                            <h2 class="nomeArtista">C4 Pedro</h2>
+                            <h2 class="nomeAlbum">King Ckwa - Album</h2>
+                            <h3 class="nomeGenero">Kizomba - Género</h3>
+                        </div>
+                    </div>
+                    <div class="music">
+                        <img class = "musicCover" src="music/martin.jpg"  draggable="true" ondragstart="drag(5, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(5, 'martin')">
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Hey Now</h1>
+                            <h2 class="nomeArtista">Martin Solveign</h2>
+                            <h2 class="nomeAlbum">16 ans ou presque - Album</h2>
+                            <h3 class="nomeGenero">Eletrónica - Género</h3>
+                        </div>
+                    </div>
+                    <div class="music">
+                        <img class = "musicCover" src="music/ludovico.jpg"  draggable="true" ondragstart="drag(6, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(6, 'ludovico')">
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Una Mattina</h1>
+                            <h2 class="nomeArtista">Ludovico Eunaudi</h2>
+                            <h2 class="nomeAlbum">Una Mattina - Album</h2>
+                            <h3 class="nomeGenero">Piano - Género</h3>
+                        </div>
+                    </div>
+                    <div class="music">
+                        <img class = "musicCover" src="music/miles.jpg"  draggable="true" ondragstart="drag(7, this)">
+                        <img class = "playMusic" src="imgs/playMusic.png" onclick="selectMusic(7, 'miles')">
+                        <div class="infoMusic">
+                            <h1 class="nomeMusica">Blue in Green</h1>
+                            <h2 class="nomeArtista">Miles Davis</h2>
+                            <h2 class="nomeAlbum">Kind of Blue - Album</h2>
+                            <h3 class="nomeGenero">Jazz - Género</h3>
+                        </div>
+                    </div>
+                </div>
+                <div id="listas" class="listas ml">
+                </div>
+
+            </div>
+            <div id = "playlist" ondrop = "drop(event)" ondragover = "allowDrop(event)">
+                <div id="listHead">
+                    <img src="imgs/playlist.png">
+                    <input id="inputList" type="text" placeholder="Clique para dar nome à sua lista"/>
+                </div>
+                <div class="listMusicContent">
+                    <img id="arrastaImg" src = "imgs/plusMusic.png">
+                    <span id="arrastaSpan">Arraste as músicas para adicionar</span>
+                </div>
+                <div class="listMusicContent">
+                </div>
+            </div>
+            <div id="addPlaylist">
+                <img src = "imgs/plus.png" onclick="addPlayList(), changeToConfirm(true)">
+                <span>Adicionar lista de reprodução</span>
+                <div class="saveCancelList">
+                    <div class="reporMusica" onclick="warningPopUpMusic('clean')">
+                        <p>Limpar</p>
+                    </div>
+                    <div class="confirmarMusica" onclick="warningPopUpMusic('confirm')">
+                        <p>Guardar</p>
+                    </div>
+                </div>
+                <div class="saveCancelList">
+                    <div class="reporMusica" onclick="warningPopUpMusic('cancel')">
+                        <p>Cancelar</p>
+                    </div>
+                    <div class="confirmarMusica" onclick="warningPopUpMusic('confirmExistingList')">
+                        <p>Guardar</p>
+                    </div>
+                </div>
+            </div>
+            <div class = "reproducer">
+                <audio id="musicaa">
+                  <source id="musicSrc" src="music/turbinada.mp3" type="audio/mpeg">
+                </audio>
+                <span id="nameMusic">A reproduzir: </span>
+                <div class="musicControl">
+                    <img class ="musicChange" src="imgs/previous.png" onclick="prevSong()">
+                    <img class="imgPlayer" src="imgs/play.png" onclick="playMusic()">
+                    <img class ="musicChange"  src="imgs/next.png" onclick="nextSong()">
+                    <div id="musicVolume">
+                        <div id="volume"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="warningWindow">
+            <div class="textWarning">
+                <span class="spanWarning">yolo</span>
+            </div>
+            <div class="warningButtons">
+                <div class="left" onclick="cancel()">
+                    <span>Não</span>
+                </div>
+                <div class="right" onclick="confirm()">
+                    <span>Sim</span>
+                </div>
+            </div>
+        </div>
+        <div class="warningWindow">
+            <div class="textWarning">
+                <span class="spanWarning">yolo</span>
+            </div>
+            <div class="warningButtons">
+                <div class="rightOk" onclick="confirm()">
+                    <span>Ok</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mensagensWindow" class="draggable window" >
+        <div class="messageTab">
+            <li id="closeButtonMe"><img src="imgs/exit.png" onclick="closeWindowMe('mensagensWindow')"></li>
+        </div>
+        <div class="messageContent">
+            <div class="messageList">
+                <div class="search-NewConv">
+                    <div class="searchMessage">
+                        <form method="get" action="/search" id="searchBoxMusic">
+                                <img src="imgs/lupa.png">
+                            <input type="text" size="40" placeholder="Pesquisar Conversa..." onkeyup="searchMessage(this)" onclick="showKeyboard()" />
+                        </form>
+                    </div>
+                    <div class="addNewConv" onclick="callAddNewConversation()">
+                        <img class="messageImg" src="imgs/plus.png">
+                        <span>Adicionar conversa</span>
+                    </div>
+                </div>
+                <div class="sideListMessage">
+                    <div class="sideMessage" onclick="selectConversation()">
+                        <img class="messageImg" src="imgs/retarded.jpg">
+                        <span>Mesa 1: Gonçalo Soares</span>
+                        <h5>Tu: Olá</h5>
+                    </div>
+                    <div class="sideMessage" onclick="selectConversation()">
+                        <img class="messageImg" src="imgs/Nuno.png">
+                        <span>Mesa 2: Nuno Cartier</span>
+                        <h5>Tu: Olá</h5>
+                    </div>
+                </div>
+            </div>
+            <div class="message">
+                <div class="conversation">
+                    <div class="bubble">
+                        <p>Olá</p>
+                        <h6>18:26</h6>
+                    </div>
+                    <div class="bubble bubble-right">
+                        <p>Olá</p>
+                        <h6>18:27</h6>
+                    </div>
+                </div>
+                <div class="inputMessage">
+                    <input class="writeInput" type="text" onclick="callshowKeyboardMessage()" placeholder="Escreva uma mensagem..." />
+                    <img class="sendPicture" src="imgs/takePicture.png" onclick="callSendPictureMode()">
+                    <img class="sendImg" src="imgs/send.png" onclick="callSendMessage()">
+                    <img class="keyboardMessage" src="imgs/keyboard.png" onclick="callhideKeyboardMessage()">
+                </div>
+            </div>
+            <div class="message">
+                <div class="conversation">
+                    <div class="bubble" onclick="addNewConversation()">
+                        <p>Olá</p>
+                        <h6>18:26</h6>
+                    </div>
+                    <div class="bubble bubble-right">
+                        <p>Olá</p>
+                        <h6>18:27</h6>
+                    </div>
+                </div>
+                <div class="inputMessage">
+                    <input class="writeInput" type="text" onclick="callshowKeyboardMessage()" placeholder="Escreva uma mensagem..." />
+                    <img class="sendPicture" src="imgs/takePicture.png" onclick="callSendPictureMode()">
+                    <img class="sendImg" src="imgs/send.png" onclick="callSendMessage()">
+                    <img class="keyboardMessage" src="imgs/keyboard.png" onclick="callhideKeyboardMessage()">
+                </div>
+
+            </div>
+            <div class="myPopup">
+                <p>Conversa criada</p>
+            </div>
+        </div>
+        <div class="warningWindow">
+            <div class="textWarning">
+                <span class="spanWarning">Fodasse</span>
+            </div>
+            <div class="warningButtons">
+                <div class="left" onclick="cancel()">
+                    <span>Não</span>
+                </div>
+                <div class="right" onclick="confirm()">
+                    <span>Sim</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="selectNewTableMessage">
+        <div class="selectNewTableMessageTab">
+            <img src="imgs/exit.png" onclick="exitSelectNewTableMessage()">
+        </div>
+        <div id="mesa1" onclick="confirmSel('Mesa 1: Gonçalo Soares')"></div>
+        <div id="mesa2" onclick="confirmSel('Mesa 2: Nuno Cartier')"></div>
+        <div id="mesa3" onclick="confirmSel('Mesa 3')"></div>
+        <div id="mesa4" onclick="confirmSel('Mesa 4')"></div>
+        <img src="imgs/plantaBar.png">
+
+        <div class="warningMessageWindow">
+            <div class="textWarningMessage">
+                <span class="spanWarningMessage">Fodasssssyolo</span>
+            </div>
+            <div class="warningButtonsMessage">
+                <div class="leftM">
+                    <span>Não</span>
+                </div>
+                <div class="rightM">
+                    <span>Sim</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="telefoneWindow" class="draggable window" >
+        <div class="SelecioneTel"><h2>Selecione o seu dispositivo</h2></div>
+        <div class="phoneDesc">
+            <h3>Emparelhe o seu dispositivo para poder ter acesso a às suas notificações</h3>
+        </div>
+        <div class="phoneSel">
+            <div class = "phone" onclick = "tooglePhone(0)"><p>LG876</p></div>
+            <div class = "phone"  onclick = "tooglePhone(1)"><p>Iphone1234</p></div>
+            <div class = "phone"  onclick = "tooglePhone(2)"><p>Nokia Batata</p></div>
+        </div>
+        <div class="SelectedPhones">
+            <div class = "selectedText"><p>Dispositivos Emparelhados</p></div>
+            <div class="phonewrapper">
+              <div class = "selectedPhoneHolder"><p>Nenhum dispositivo emparelhado</p></div>
+              <div class = "selectedPhone"><p>LG876</p></div>
+              <div class = "selectedPhone"><p>Iphone1234</p></div>
+              <div class = "selectedPhone"><p>Nokia Batata</p></div>
+            </div>
+        </div>
+        <div class="confirmCancelPhone">
+            <div class="cancelPhone" onclick="cancelPhone()">
+                <span>Cancelar</span>
+            </div>
+            <div class="confirmPhone" onclick = "connectPhone()">
+                <span>Confirmar</span>
+            </div>
+        </div>
+    </div>
+    <div id="fotoWindow" class="draggable window" >
+        <ul class="photoTab">
+            <li class="photosTab" onclick="changeSubMenuPhoto(this, 'photoTab'), toggleSubMenuPhoto('photoContent')"><p>Camera</p></li>
+            <li class="photosTab" onclick="changeSubMenuPhoto(this, 'photoTab'), toggleSubMenuPhoto('savedPhoto')"><p>Galeria</p></li>
+            <li class="closeButtonPhoto"><img src="imgs/exit.png" onclick="closeWindowPhoto('fotoWindow')"></li>
+        </ul>
+        <div class="photoContent">
+            <div class="countDown">
+                <span></span>
+            </div>
+            <span class="photoSpan">Carregue no botão para capturar</span>
+            <div class="photoButton" onclick="takePhoto()">
+                <img class="takePicture" src="imgs/takePicture.png">
+            </div>
+        </div>
+        <div class = "savedPhoto">
+            <div class="photo" onclick="selectPhoto(this)">
+                <div class="checked3">
+                    <img src="imgs/notChecked.png">
+                </div>
+                <img src="imgs/person1.jpg">
+            </div>
+            <div class="photo" onclick="selectPhoto(this)">
+                <div class="checked2">
+                    <img src="imgs/notChecked.png">
+                </div>
+
+                <img src="imgs/person2.jpg">
+            </div>
+            <div class="photo" onclick="selectPhoto(this)">
+                <div class="checked1">
+                    <img src="imgs/notChecked.png">
+                </div>
+                <img src="imgs/person2.jpg">
+            </div>
+            <div class="selectedPhotos">
+                <span>Selecionados: 0</span>
+                <div class="sendSelectedPhotos" onclick="sendPicture()">
+                    <p>Enviar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="tvWindow" class="draggable window">
+        <div class="videoTab">
+            <h2>Televisão</h2>
+            <li id="closeButtonTv"><img src="imgs/exit.png" onclick="closeWindowTv('tvWindow')"></li>
+        </div>
+        <div class="listVideo">
+            <div class="video" onclick="changeVideo('pascoa'), selectVideo(this)">
+                <img src="videos/pascoaFront.png">
+                <div class="videoDescricao">
+                    <span>Adepto em Furia</span>
+                    <br>
+                    <span>O retorno</span>
+                </div>
+            </div>
+            <div class="video" onclick="changeVideo('rickRoll'), selectVideo(this)">
+                <img src="videos/rickRollFront.png">
+                <div class="videoDescricao">
+                    <span>Rick Roll is love</span>
+                    <br>
+                    <span>Rick Roll is life</span>
+                </div>
+            </div>
+        </div>
+        <div class="playVideo">
+            <video id = "videoPlayer" controls>
+                <source id="playing" src="videos/pascoa.mp4" type="video/mp4">
+            </video>
+
+        </div>
+        <div class="warningTelevisionWindow">
+            <div class="textWarning">
+                <span class="spanTelevisionWarning">yolo</span>
+            </div>
+            <div class="warningButtons">
+                <div class="leftTv" onclick="cancel()">
+                    <span>Não</span>
+                </div>
+                <div class="rightTv" onclick="confirm()">
+                    <span>Sim</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="messageWidget">
+          <div class="messageWidgetTab">
+            <p>Mãe</p>
+            <img class="closeTempMessage" src="imgs/exit.png" onclick="closeWid()">
+          </div>
+          <div class="conversation">
+              <div class="bubble">
+                  <p>Se eu te trouxer uma vaca, tiras lhe o leite?</p>
+                  <h6>18:26</h6>
+              </div>
+          </div>
+          <div class="inputMessage">
+              <input class="writeInput" type="text" onclick="callshowKeyboardMessage()" placeholder="Escreva uma mensagem..." />
+              <img class="sendPicture" src="imgs/takePicture.png" onclick="callSendPictureMode()">
+              <img class="sendImg" src="imgs/send.png" onclick="callsendTempMessage()">
+              <img class="keyboardMessage" src="imgs/keyboard.png" onclick="callhideKeyboardMessage()">
+          </div>
+    </div>
+    <div class="phoneWidget" onclick="replyMessage('Mãe')">
+        <span>LG876</span>
+        <img src="imgs/notclose.png" onclick="closeNotif()"/>
+        <div class="notification">
+          <p>Mensagem de: Mãe</p>
+          <img src="imgs/replyMessage.png">
+        </div>
+
+    </div>
+    <div class="phoneWidget" onclick="replyMessage('Sidechick')">
+        <span>Iphone1234</span>
+        <img src="imgs/notclose.png" onclick="closeNotif()"/>
+        <div class="notification">
+          <p>Mensagem de: Sidechick</p>
+          <img src="imgs/replyMessage.png">
+        </div>
+    </div>
+    <div class="phoneWidget" onclick="replyMessage('Obama')">
+        <span>Nokia Batata</span>
+        <img src="imgs/notclose.png" onclick="closeNotif()"/>
+        <div class="notification">
+          <p>Mensagem de: Obama</p>
+          <img src="imgs/replyMessage.png">
+        </div>
+    </div>
+    <img class="clearPhoneNot" src="imgs/clearAll.png" onclick="cleanNotif()"/>
+
+    <div class="popUpMessage" onclick="replyPopUpMessage('Mesa 1: Gonçalo Soares', this)">
+        <p>Mesa: 1</p>
+        <img class="exitpopUpMessage" src="imgs/notclose.png" onclick="closeNotif()"/>
+        <span>Mensagem de: Gonçalo S.</span>
+
+        <img class="respondepopUpMessage" src="imgs/replyMessage.png">
+    </div>
+
+    <div class="popUpMessage" onclick="replyPopUpMessage('Mesa 2: Nuno Cartier', this)">
+        <p>Mesa: 2</p>
+        <img class="exitpopUpMessage" src="imgs/notclose.png" onclick="closeNotif()"/>
+        <span>Mensagem de: Nuno C.</span>
+
+        <img class="respondepopUpMessage" src="imgs/replyMessage.png">
+    </div>
+
+    <div class="popUpMessage" onclick="replyPopUpMessage('Mesa 3', this)">
+        <p>Mesa: 3</p>
+        <img class="exitpopUpMessage" src="imgs/notclose.png" onclick="closeNotif()"/>
+        <span>Mensagem de: Sem utilizador</span>
+
+        <img class="respondepopUpMessage" src="imgs/replyMessage.png">
+    </div>
+    <div class="popUpMessage" onclick="replyPopUpMessage('Mesa 4', this)">
+        <p>Mesa: 4</p>
+        <img class="exitpopUpMessage" src="imgs/notclose.png" onclick="closeNotif()"/>
+        <span>Mensagem de: Sem utilizador</span>
+
+        <img class="respondepopUpMessage" src="imgs/replyMessage.png">
+    </div>
+
+    <img src="imgs/keyboard.png" class="keyboard" usemap="#map"/>
+    <div class="hideKeyboard" onclick="hideKeyboard()"></div>
+
+<!--              Footer             -->
+  <footer>
+    <div class="dockItem" onfocus="if(this.blur)this.blur()">
+      <img src="imgs/food.png" onclick="toggleWindow('comidaWindow', 'foodSel')">
+      <div id="foodSel" class="selector"></div>
+    </div>
+    <div class="dockItem">
+      <img src="imgs/musica.png" onclick="toggleWindow('musicaWindow', 'musicaSel')">
+      <div id="musicaSel" class="selector"></div>
+    </div>
+    <div class="dockItem">
+      <img src="imgs/message.png" onclick="toggleWindow('mensagensWindow', 'mensSel')" >
+      <div id="mensSel" class="selector"></div>
+    </div>
+    <div class="dockItem">
+      <img src="imgs/phone.png" onclick="toggleWindow('telefoneWindow', 'telSel')">
+      <div id="telSel" class="selector"></div>
+    </div>
+    <div class="dockItem">
+      <img src="imgs/camera.png" onclick="toggleWindow('fotoWindow', 'fotoSel')">
+      <div id="fotoSel" class="selector"></div>
+    </div>
+    <div class="dockItem">
+      <img src="imgs/tv.png" onclick="toggleWindow('tvWindow', 'tvSel')">
+      <div id="tvSel" class="selector"></div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,2218 @@
+@font-face{
+  font-family: Montserrat;
+  src: url(fonts/Montserrat-Regular.ttf);
+}
+
+body, html{
+  height: 100%;
+  font-family: 'Montserrat';
+  overflow: hidden;
+}
+
+#lockScreen{
+  text-align: center;
+  justify-content: center;
+  position: relative;
+  bottom: 25px;
+  font-size: 18px;
+}
+
+#clockWidget{
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  text-align: center;
+  position: relative;
+  bottom: 20px;
+}
+
+#clock {
+  font-size: 35pt;
+  margin-bottom: 15px;
+}
+
+
+.search {
+    margin-left: 20px;
+    position: relative;
+}
+
+.search img{
+    width: 20px;
+    height: 20px;
+    position:relative;
+    top:7px;
+}
+
+.search input[type="text"] {
+    background: #fcfcfc;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    position: relative;
+    margin-top: 12px;
+    height: 25px;
+}
+
+#lockclock {
+  font-size: 100pt;
+  margin-bottom: 15px;
+}
+
+#lockTemperature{
+  font-size: 50pt;
+}
+
+#Temperature{
+  font-size: 20pt;
+}
+
+#Place{
+  font-size: 15pt;
+}
+
+#lockPlace{
+  font-size: 30pt;
+}
+
+#Touch{
+  font-size: 30pt;
+}
+
+#weather{
+  height: 30px;
+  font-size: 11pt;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+#lockweather{
+  height: 30px;
+  font-size: 11pt;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+}
+
+#weather p{
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+#lockweather p{
+    border: 10px;
+    margin-top: 6px;
+    margin-bottom: 0;
+}
+
+#sun {
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+}
+
+#locksun {
+  width: 100px;
+  height: 100px;
+  margin-right: 20px;
+}
+.sideBar{
+  display: none;
+  float: right;
+  width: 250px;
+}
+.sideList{
+  position: relative;
+  top: 50px;
+  float: right;
+  height: 250px;
+  width: 300px;
+  display: block;
+}
+
+.sideList div.ui-accordion-header{
+  background-color: blue;
+  margin: 0;
+}
+
+.ui-accordion .ui-accordion-content{
+  overflow-x: visible !important;
+}
+.ui-accordion .ui-accordion-content{
+    padding:17px 22px;
+}
+
+/*#headPendent .ui-accordion-content{
+
+}*/
+.ui-accordion .ui-accordion-content {
+  padding: 25px;
+  padding-top: 10px;
+}
+
+/*.listContent{
+}*/
+.pendentItem{
+    display: flex;
+    flex-wrap: wrap;
+    width: 240px;
+
+}
+.pendentItem span{
+    font-size: 13pt;
+    padding-top: 10px;
+}
+
+.pendentItem div{
+    height: 20px;
+    width: 20px;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+
+.totalFinal{
+  height: 15px;
+}
+
+.window {
+  left: 400px;
+  top: 190px;
+  position: absolute;
+  visibility: hidden;
+  /*display: none;*/
+  width: 1100px;
+  height: 550px;
+
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  background: white;
+  padding: 20px;
+  padding-bottom: 21px;
+}
+
+#comidaWindow{
+    visibility: hidden;
+    opacity: 0;
+    background: #e4e4e4;
+    /*background: rgba(0, 188, 255, 0.47);*/
+}
+footer {
+  -webkit-filter: blur(10px);
+  filter: blur(10px);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+.dockItem{
+  margin: 0 45px 20px 45px;
+}
+
+.dockItem img{
+  width: 80px;
+  height: 80px;
+  margin-top: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  -moz-box-shadow: 5px 5px 10px black;
+  -webkit-box-shadow: 5px 5px 10px black;
+  box-shadow: 5px 5px 10px black;
+  -moz-border-radius:20px;
+  -webkit-border-radius:20px;
+  border-radius:20px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.dockItem img:active{
+  transform: translateY(5px);
+
+}
+
+#produto {
+    font-size: 20px;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    /*font-family: 'LeagueGothic';*/
+}
+
+#descricao{
+    font-size: 15px;
+    font-weight: 200;
+}
+
+#foodTab {
+    list-style-type: none;
+    margin: -20px;
+    height: 50px;
+    width: 1140px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1D6FA9;
+    border-bottom: black;
+    border-bottom-style: solid;
+    border-width: 1.5px;
+}
+
+.foodTabs {
+    float: left;
+    padding-bottom: 10px;
+}
+
+.foodTabs p{
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+    bottom: 15px;
+}
+
+#closeButton{
+    float: right;
+    margin: 10px;
+}
+
+#closeButton img{
+    cursor: pointer;
+    float: right;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    bottom: 5px;
+}
+
+#closeButtonM{
+    float: right;
+    margin: 10px;
+}
+
+#closeButtonM img{
+    cursor: pointer;
+    float: right;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    bottom: 5px;
+}
+
+#closeButtonMe{
+    float: right;
+    margin: 10px;
+}
+
+#closeButtonMe img{
+    cursor: pointer;
+    float: right;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    bottom: 5px;
+}
+
+#content{
+    display: flex;
+    flex-wrap: wrap;
+    opacity: 1;
+}
+
+.productDiv{
+    height: 540px;
+    width: 800px;
+    top: 20px;
+    left: -20px;
+    position: relative;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+
+#listShop{
+    height: 450px;
+    width: 339px;
+    top: 20px;
+    position: relative;
+    margin-left: -20px;
+    margin-right: -20px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#shopConfirm {
+  position: relative;
+  left: 780px;
+  bottom: 70px;
+  height: 70px;
+  width: 340px;
+  /*background: #00BCFF;*/
+  display: block;
+  padding-bottom: 20px;
+  border-top-style: solid;
+  border-left-style: solid;
+  border-width: 1px;
+  border-color: black;
+
+}
+.total{
+    position: relative;
+    height: 25px;
+    width: 335px;
+}
+
+#total{
+    position: relative;
+    width: 300px;
+    margin: 0px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+#buttonWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.repor, .confirmar {
+  position: relative;
+  left:20px;
+  background-color: #00b300;
+  border-radius: 10px;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  /*border-style: solid;*/
+  border-width: 2px;
+  border-color: black;
+  color: white;
+}
+.repor{
+    background-color: #b30000;
+}
+
+.repor p, .confirmar p{
+    position: relative;
+    top: 5px;
+    margin: 0px;
+}
+
+.products{
+    position: absolute;
+    height: 490px;
+    width: 750px;
+    visibility: hidden;
+}
+
+#sugestion, #drinkAlchool, #drinkNonAlchool, #food {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product{
+  height: 150px;
+  width: 355px;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+}
+
+.info{
+  position: relative;
+  width: 235px;
+  float: left;
+  margin: 5px;
+  margin-left: 10px;
+}
+.infoList, .infoMusic{
+  position: relative;
+  right: 25px;
+  width: 235px;
+  float: left;
+  margin: 5px;
+  margin-left: 10px;
+}
+
+.product img{
+  height: 130px;
+  width: 100px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  -moz-box-shadow: 5px 5px 10px black;
+  -webkit-box-shadow: 5px 5px 10px black;
+  box-shadow: 5px 5px 10px black;
+  -moz-border-radius:20px;
+  -webkit-border-radius:20px;
+  border-radius:20px;
+  cursor: pointer;
+}
+
+.product img:active{
+  transform: translateY(5px);
+
+}
+
+.product p{
+    margin: 5px;
+}
+
+.comprado {
+  color: black;
+  padding: 0 10px;
+  height: 60px;
+}
+
+.lixo{
+    position: relative;
+    top: 12px;
+    float: left;
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.name{
+    position: relative;
+    top: 20px;
+    width: 135px;
+    float: left;
+    text-align: left;
+    margin-right: 5px;
+    border-top: 5px;
+}
+
+.quant{
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  width: 20px;
+  text-align: center;
+}
+
+.price{
+    position: relative;
+    top: 18px;
+    text-align: right;
+    float: right;
+    width: 50px;
+}
+.mais{
+    position: relative;
+    top: 12px;
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+.mais img{
+  height: 20px;
+  width: 20px;
+}
+
+.menos{
+    position: relative;
+    top: 12px;
+    height: 20px;
+    width: 20px;
+    margin: 5px;
+    cursor: pointer;
+}
+.warningWindow{
+  left: 35%;
+  top: 35%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  background: #e4e4e4;
+  display: none;
+
+  z-index: 3;
+}
+
+.warningTelevisionWindow{
+  left: 35%;
+  top: 35%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  background: #e4e4e4;
+  display: none;
+
+  z-index: 3;
+}
+
+.warningWindow1{
+  left: 20%;
+  top: 35%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  background: #e4e4e4;
+  display: none;
+
+  z-index: 3;
+}
+
+.textWarning{
+    height: 70%;
+    text-align: center;
+}
+.textWarning span{
+    margin-top: 5px;
+}
+.warningButtons{
+    display: flex;
+    flex-wrap: wrap;
+    height: 30%;
+    position: relative;
+    left: 8px;
+}
+
+.left, .right{
+  position: relative;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  /*border-style: solid;*/
+  border-width: 1px;
+  border-color: black;
+  color: white;
+  padding-top: 10px;
+  margin-left: 5px;
+}
+
+.leftTv, .rightTv{
+  position: relative;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  /*border-style: solid;*/
+  border-width: 1px;
+  border-color: black;
+  color: white;
+  padding-top: 10px;
+  margin-left: 5px;
+}
+
+.rightOk{
+  position: relative;
+  background-color: #00b300;
+  left: 75px;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  /*border-style: solid;*/
+  border-width: 1px;
+  border-color: black;
+  color: white;
+  padding-top: 10px;
+  margin-left: 5px;
+}
+
+.left {
+    background-color: #b30000;
+}
+
+.leftTv {
+    background-color: #b30000;
+}
+
+.right {
+    background-color: #00b300;
+}
+
+.rightTv {
+    background-color: #00b300;
+}
+
+.Payment {
+  width: 300px;
+  height: 45px;
+  margin-top: 2px;
+  background-color: white;
+  border-radius: 4px;
+  display: flex;
+}
+
+#paymentWindow {
+    position:absolute;
+    left: 700px;
+    top: 300px;
+    width: 500px;
+    height: 300px;
+    background-color: #e4e4e4;
+}
+
+.payTitle{
+  margin: -21px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1D6FA9;
+  border-bottom: black;
+  border-bottom-style: solid;
+  border-width: 1.5px;
+  text-align: center;
+}
+
+.payTitle h2{
+    color: white;
+}
+
+.payMenu {
+    display: flex;
+    position: relative;
+    top: 30px;
+}
+
+.payChoice{
+  width: 180px;
+  height: 90px;
+  margin-left: 5px;
+  border-style: solid;
+  border-width: thin;
+  background-color: white;
+  text-align: center;
+}
+
+.payChoice p{
+    font-size: 20px;
+}
+
+.payChoice img{
+    position: relative;
+    width: 32px;
+    height: 32px;
+    top: 6px;
+}
+
+.payText{
+    position: relative;
+    top: 30px;
+    text-align: center;
+}
+
+.payTotal{
+    position: relative;
+    top: 70px;
+    text-align: center;
+}
+
+.ok{
+  position: relative;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  /*border-style: solid;*/
+  border-width: 1px;
+  border-color: black;
+  color: white;
+  padding-top: 10px;
+  margin-left: 75px;
+  background: green;
+}
+
+#TotalPagar{
+    font-size: 25px;
+}
+
+.Payment span {
+  position: relative;
+  color: #1c94c4;
+  top: 25%;
+  left: 4%;
+  width: 200px;
+}
+
+.divPagar{
+  position: relative;
+  background-color: #1D6FA9;
+  /*border-color: #1c94c4;
+  border-style: solid;
+  border-width: 1px;*/
+  float: right;
+  /*left: 50px;*/
+  top: 4.5px;
+  width: 50px;
+  height: 80%;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#clickPagar {
+  position: relative;
+  top: 6px;
+  color: white;
+}
+
+/*Music Style--------------------------------------------------------------------------------------------------------------------------*/
+
+#musicaWindow{
+    visibility: hidden;
+    opacity: 0;
+    background: #e4e4e4;
+}
+
+#musicTab{
+    list-style-type: none;
+    margin: -20px;
+    height: 50px;
+    width: 1140px;
+    padding: 0;
+    overflow: hidden;
+    background-color: #1D6FA9;
+    border-bottom: black;
+    border-bottom-style: solid;
+    border-width: 1.5px;
+}
+
+.musicTabs {
+    float: left;
+    padding-bottom: 10px;
+    height: 40px;
+}
+
+#jq-dropdown-1  a{
+  position: relative;
+}
+
+.ml {
+    position: absolute;
+    height: 490px;
+    width: 750px;
+}
+
+.musicTabs li{
+  height: 40px;
+}
+
+.musicTabs p{
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+    bottom: 15px;
+}
+
+.nomeMusica {
+    font-size: 18px;
+    margin-bottom: 5px;
+    margin-top: 1px;
+    /*font-family: 'LeagueGothic';*/
+}
+
+.nomeArtista , .nomeAlbum{
+    font-size: 15px;
+    font-weight: 200;
+}
+
+.nomeGenero{
+    font-size: 12px;
+    font-weight: 200;
+}
+
+#musicas, #listas{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.musicContent{
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 1;
+}
+.musicDiv{
+  height: 450px;
+  width: 800px;
+  top: 20px;
+  left: -20px;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  display: flex;
+  flex-wrap: wrap;
+}
+.music{
+  height: 150px;
+  width: 355px;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+
+}
+
+.lista{
+  height: 150px;
+  width: 355px;
+  margin-top: 20px;
+  margin-left: 20px;
+  display: flex;
+}
+.listaImg{
+  height: 130px;
+  width: 100px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  -moz-box-shadow: 5px 5px 10px black;
+  -webkit-box-shadow: 5px 5px 10px black;
+  box-shadow: 5px 5px 10px black;
+  cursor: pointer;
+}
+
+.musicCover{
+  height: 130px;
+  width: 100px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: black;
+  -moz-box-shadow: 5px 5px 10px black;
+  -webkit-box-shadow: 5px 5px 10px black;
+  box-shadow: 5px 5px 10px black;
+  cursor: pointer;
+}
+
+.playMusic{
+  position: relative;
+  top: 90px;
+  right: 30px;
+  height: 50px;
+  width: 50px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.delPlay{
+  position: relative;
+  top: 0px;
+  right: 80px;
+  height: 38px;
+  width: 38px;
+  border-radius: 25px;
+  -webkit-border-radius: 25px;
+  background-color: white;
+  cursor: pointer;
+
+}
+
+#playlist{
+  height: 385px;
+  width: 339px;
+  top: 20px;
+  position: relative;
+  margin-left: -20px;
+  margin-right: -20px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#listHead{
+  display: none;
+  flex-wrap: wrap;
+  position: fixed;
+  top: 246px;
+  height: 70px;
+  width: 315px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  z-index: 5;
+  background: white;
+}
+
+#listHead img{
+  position: relative;
+  top: 15px;
+  left: 10px;
+  height: 35px;
+  width: 35px;
+}
+#playlist input[type="text"] {
+    background: #fcfcfc;
+    box-shadow: 0 0 3px #ccc, 0 10px 15px #ebebeb inset;
+    position: relative;
+    left: 10px;
+    margin: 15px;
+    width: 200px;
+}
+
+.listMusicContent{
+  position: relative;
+  display: none;
+  top: 60px;
+  height: 320px;
+  width: 339px;
+}
+
+#arrastaImg{
+  position: relative;
+  top: 100px;
+  left: 140px;
+  width: 40px;
+  height: 40px;
+}
+
+#arrastaSpan{
+  position: relative;
+  top: 140px;
+  right: 20px;
+  color: grey;
+}
+.itemListMusic{
+  display: flex;
+  flex: wrap;
+  margin-top: 10px;
+  height: 55px;
+  width: 310px;
+}
+
+.itemListMusic img{
+  position: relative;
+  margin-left: 10px;
+  top: 5px;
+  height: 40px;
+  width: 40px;
+}
+
+.itemListMusic span{
+  position: relative;
+  top: 10px;
+  margin-left: 10px;
+  color: black;
+}
+
+.removePlaylist{
+  height: 20px;
+  width: 20px;
+}
+#addPlaylist{
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  top: 436px;
+  right: 0px;
+  height: 60px;
+  width: 339px;
+
+  border-top-style: solid;
+  border-top-width: 2px;
+}
+#addPlaylist img{
+  position: relative;
+  top: 7px;
+  left: 5px;
+  height: 45px;
+  width: 45px;
+}
+#addPlaylist span{
+  position: relative;
+  top: 15px;
+  left: 20px;
+}
+
+.saveCancelList{
+  display: none;
+  height: 60px;
+  width: 339px;
+}
+
+.reporMusica, .confirmarMusica {
+  position: relative;
+  left:20px;
+  top: 15px;
+  background-color: #00b300;
+  border-radius: 10px;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  /*border-style: solid;*/
+  border-width: 2px;
+  border-color: black;
+  color: white;
+}
+.reporMusica{
+    background-color: #b30000;
+}
+
+.reporMusica p, .confirmarMusica p{
+    position: relative;
+    top: 5px;
+    margin: 0px;
+}
+
+
+
+
+.reproducer{
+  position: relative;
+ /*left: 780px;*/
+ top: 37px;
+ height: 90px;
+ width: 1140px;
+ background-color: #e4e4e4;
+ margin: -20px;
+ /*background-color: blue;*/
+ display: block;
+
+ border-top-style: solid;
+ border-width: 3px;
+ border-color: black;
+}
+
+.musicControl{
+  position: relative;
+  left: 60px;
+}
+.musicControl img{
+  margin: 15px;
+}
+
+.musicChange{
+  position: relative;
+  top: 5px;
+  height: 40px;
+  width: 40px;
+  margin: 0px;
+}
+
+.removePlaylist {
+  position: relative;
+  margin-left: 10px;
+  top: 15px;
+  height: 16px;
+  width: 16px;
+}
+
+#nameMusic {
+  position: relative;
+  top: 15px;
+  left: 20px;
+}
+
+#musicVolume {
+    width: 350px;
+    height: 50px;
+    position: relative;
+    margin: 0 auto;
+    bottom: 50px;
+    left: 300px;
+    /*background: url('http://planetoftheweb.com/exercises/jsuislider/images/volume-background.png') no-repeat left top;*/
+}
+
+#volume {
+    position: absolute;
+    left: 24px;
+    margin: 0 auto;
+    height:15px;
+    width: 300px;
+    background: url('volume-empty.png') no-repeat left top;
+}
+
+#volume .ui-slider-range-min {
+    height:15px;
+    width: 300px;
+    position: absolute;
+    background: url('volume-full.png') no-repeat left top;
+}
+
+#volume .ui-slider-handle {
+    width: 20px;
+    height: 20px;
+    background: url('handle.png') no-repeat left top;
+    position: absolute;
+    margin-left: -15px;
+    cursor: pointer;
+    outline: none;
+}
+
+/*Video Style*/
+#tvWindow{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.videoTab{
+  list-style-type: none;
+  margin: -20px;
+  height: 50px;
+  width: 1140px;
+  padding: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: #1D6FA9;
+  border-bottom: black;
+  border-bottom-style: solid;
+  border-width: 1.5px;
+}
+
+.videoTab h2{
+    position: relative;
+    color:  white;
+    bottom: 10px;
+}
+
+#closeButtonTv{
+    float: right;
+    position: relative;
+    bottom: 70px;
+    margin: 10px;
+}
+
+#closeButtonTv img{
+    cursor: pointer;
+    float: right;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    bottom: 5px;
+}
+
+.listVideo{
+  height: 540px;
+  width: 300px;
+  top: 20px;
+  position: relative;
+  margin-left: -20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #e4e4e4;
+}
+
+.video{
+  display: flex;
+  width: 100%;
+  height: 20%;
+  background-color: #A5D4FA;
+  border-bottom-style:  solid;
+  border-bottom-color: grey;
+  border-bottom-width: 2px;
+
+}
+
+.video img{
+  height: 80px;
+  width: 80px;
+  padding-top: 15px;
+  padding-left: 15px;
+}
+
+.videoDescricao{
+  position: relative;
+  top: 30px;
+  left: 20px;
+}
+
+.playVideo{
+  height: 540px;
+  width: 839.5px;
+  top: 20px;
+  margin-right: -20px;
+  position: relative;
+  background-color: black;
+}
+
+.playVideo video{
+  width: 100%;
+  height: 100%;
+}
+
+.selector {
+  top: 10px;
+  opacity: 1;
+  visibility: hidden;
+  background-color: white;
+  height: 10px;
+  width: 80px;
+  border-radius: 20px;
+  position:  relative;
+  left: 13px;
+}
+
+.keyboard {
+  width: 800px;
+  height: 274.984px;
+  position: fixed;
+  left: 600px;
+  top: 510px;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.hideKeyboard{
+  cursor: pointer;
+  position: fixed;
+  left: 1335px;
+  top: 720px;
+  width: 60px;
+  height: 60px;
+  z-index: 101;
+ }
+
+ #nameMusicWid {
+   position: relative;
+   top: 15px;
+   left: 30px;
+ }
+
+.musicWidget {
+  top: 220px;
+  left: 730px;
+  position: absolute;
+  width: 500px;
+  height: 120px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  background-color: #e4e4e4;
+  display: none;
+}
+
+#musicControlWid {
+  position: relative;
+  top: 20px;
+  left: 150px;
+}
+
+/*Style message*/
+.messageTab{
+  list-style-type: none;
+  margin: -20px;
+  height: 10%;
+  padding: 0;
+  background-color: #1D6FA9;
+  border-bottom: black;
+  border-bottom-style: solid;
+  border-width: 1.5px;
+}
+
+.messageContent{
+  display: flex;
+}
+
+.messageList{
+  height: 535px;
+  width: 300px;
+  top: 20px;
+  position: relative;
+  margin-left: -20px;
+  background-color: #e4e4e4;
+  border-right-style: solid;
+  border-width: 2px;
+}
+#searchBoxMusic{
+  position: relative;
+  top: 7px;
+}
+
+#searchBoxMusic input[type="text"] {
+    background-color: white;
+    border: 0 none;
+    outline: 0;
+    font: bold 12px Arial,Helvetica,Sans-serif;
+    color: black;
+    width: 150px;
+    padding: 6px 15px 6px 35px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 3px rgba(0, 0, 0, 0.2) inset;
+    -webkit-transition: all 0.7s ease 0s;
+    -moz-transition: all 0.7s ease 0s;
+    -o-transition: all 0.7s ease 0s;
+    transition: all 0.7s ease 0s;
+    }
+
+#searchBoxMusic input[type="text"]:focus {
+    width: 200px;
+}
+
+#searchBoxMusic img{
+  position: relative;
+  top: 8px;
+  left: 30px;
+  height: 20px;
+  width: 20px;
+}
+.conversation{
+  overflow-y: auto;
+  height: 47%;
+}
+.message{
+  display: none;
+  height: 535px;
+  width: 835px;
+  margin-right: -20px;
+  position: absolute;
+  bottom: 0px;
+  background-color: #e4e4e4;
+}
+
+.bubble {
+  position: relative;
+  left: 10px;
+  top: 10px;
+	background-color: #5EB4FF;
+	border: solid 1px rgba(0, 0, 0, 0.5);
+	/* vendor rules */
+	border-radius: 20px;
+	/* vendor rules */
+	box-shadow: inset 0 5px 5px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.2);
+	/* vendor rules */
+	box-sizing: border-box;
+	clear: both;
+	float: left;
+	margin-bottom: 20px;
+	padding: 8px 30px;
+	position: relative;
+	width: auto;
+	max-width: 100%;
+	word-wrap: break-word;
+}
+.bubble p{
+  margin: 5px;
+}
+.bubble h6{
+  position: relative;
+  float: right;
+  margin: 0px;
+  left: 10px;
+}
+
+.bubble:before, .bubble:after {
+	border-radius: 20px / 10px;
+	content: '';
+	display: block;
+	position: absolute;
+}
+
+.bubble:before {
+  border: 8px solid transparent;
+  border-bottom-color: rgba(0, 0, 0, 0.5);
+  bottom: 1.5px;
+  left: -6px;
+  z-index: 0;
+}
+
+.bubble:after {
+  border: 8px solid transparent;
+  border-bottom-color: #5EB4FF;
+  bottom: 2px;
+  left: -5px;
+  z-index: 1;
+}
+
+.bubble-right{
+  position: relative;
+  left: -20px;
+	background-color: #AAE6FA;
+	float: right;
+  max-width: 700px;
+}
+
+.bubble-right:before {
+	border-bottom-color: rgba(0, 0, 0, 0.5);
+	border-radius: 20px / 10px;
+	left: auto;
+	right: -7px;
+}
+
+.bubble-right:after {
+	border-bottom-color: #AAE6FA;
+	border-radius: 20px / 10px;
+	left: auto;
+	right: -5px;
+}
+
+.inputMessage{
+  position: absolute;
+  top: 240px;
+}
+
+.writeInput{
+  width: 720px;
+  height: 40px;
+  position: relative;
+}
+.sendPicture{
+  left: 5px;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: 10px;
+}
+
+.sendImg{
+  left: 30px;
+  height: 35px;
+  width: 35px;
+  position: relative;
+  top: 10px;
+}
+.keyboardMessage{
+  width: 840px;
+  height: 241px;
+}
+.search-NewConv{
+  width: 300px;
+  height: 121.5px;
+  border-bottom-style: solid;
+  border-width: 2px;
+}
+
+.sideListMessage{
+  width: 300px;
+  height: 413.5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.searchMessage{
+  width: 300px;
+  height: 50px;
+  background-color: #2D80C4;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: grey;
+}
+.sideMessage , .addNewConv{
+  width: 300px;
+  height: 70px;
+  border-bottom-style: solid;
+  border-bottom-color: grey;
+  border-bottom-width: 2px;
+  cursor: pointer;
+  background-color: #A5D4FA;
+}
+.addNewConv{
+  background-color: #A5D4FA;
+  border-bottom-color: black;
+  border-bottom-width: 3px;
+}
+.sideMessage span, .addNewConv span{
+  position: relative;
+  left: 15px;
+  bottom: 30px;
+}
+
+.sideMessage h5{
+  position: relative;
+  bottom: 20px;
+  left: 80px;
+  width: 220px;
+  margin: 0px;
+}
+
+.messageImg{
+  position: relative;
+  top: 5px;
+  left: 5px;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+	-webkit-border-radius: 30px;
+	-moz-border-radius: 30px;
+}
+
+.selectNewTableMessage{
+  display: none;
+  position: absolute;
+  top: 230px;
+  left: 500px;
+  border-style: solid;
+  border-color: black;
+  border-width: 3px;
+  z-index: 3;
+}
+
+.selectNewTableMessageTab{
+  width: 100%;
+  height: 45px;
+  background-color: #1D6FA9;
+}
+.selectNewTableMessageTab img{
+  height: 40px;
+  width: 40px;
+  float: right;
+}
+#mesa1{
+  position: absolute;
+  top: 120px;
+  left: 70px;
+  height: 180px;
+  width: 180px;
+  cursor: pointer;
+}
+#mesa2{
+  position: absolute;
+  top: 115px;
+  left: 325px;
+  height: 180px;
+  width: 180px;
+  cursor: pointer;
+}
+#mesa3{
+  position: absolute;
+  top: 330px;
+  left: 65px;
+  height: 180px;
+  width: 180px;
+  cursor: pointer;
+}
+#mesa4{
+  position: absolute;
+  top: 330px;
+  left: 330px;
+  height: 180px;
+  width: 180px;
+  cursor: pointer;
+}
+
+.myPopup{
+  display: none;
+  position: absolute;
+  top: 100px;
+  left: 900px;
+  height: 50px;
+  width: 200px;
+  background-color: rgb(165, 212, 250);
+  border: 2px solid;
+  box-shadow: 5px 5px 5px #888888;
+
+}
+
+.myPopup p{
+  position: relative;
+  left: 30px;
+}
+
+/*Telefone*/
+
+#telefoneWindow {
+  width: 600px;
+  height: 400px;
+  left: 700px;
+  top: 250px;
+  background-color: #e4e4e4;
+}
+
+.phoneDesc{
+  position: relative;
+  top: 30px;
+}
+.SelecioneTel {
+  margin: -21px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1D6FA9;
+  border-bottom: black;
+  border-bottom-style: solid;
+  border-width: 1.5px;
+}
+
+.SelecioneTel h2{
+  position: relative;
+  left: 15px;
+  color: white;
+}
+
+.phoneSel{
+  position: relative;
+  top: 30px;
+}
+
+.phone{
+  width: 180px;
+  height: 40px;
+  margin: 5px;
+  border-style: solid;
+  border-width: thin;
+  text-align: center;
+  cursor: pointer;
+  background-color: white;
+}
+.phone p{
+  position: relative;
+  bottom: 5px;
+  left: 8px;
+  width: 150px;
+}
+
+.jq-dropdown-menu li{
+  position: relative;
+  bottom: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: thin;
+}
+
+.jq-dropdown-menu li > a{
+  position: relative;
+  top: 15px;
+}
+
+.confirmCancelPhone{
+  position: relative;
+  left: 35px;
+  top: -80px;
+  display: flex;
+  height: 50px;
+  width: 400px;
+
+  float: right;
+
+}
+
+.cancelPhone, .confirmPhone{
+  position: relative;
+  background-color: grey;
+  border-radius: 10px;
+  height: 40px;
+  width: 160px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  /* border-style: solid; */
+  border-width: 2px;
+  border-color: black;
+  color: white;
+}
+.confirmPhone{
+  pointer-events: none;
+}
+.cancelPhone{
+    background-color: #b30000;
+}
+
+.cancelPhone span, .confirmPhone span{
+    position: relative;
+    top: 10px;
+    margin: 0px;
+}
+
+.phoneWidget{
+  display: none;
+  position: relative;
+  margin: 0px;
+  height: 80px;
+  top: 30px;
+  width: 300px;
+  border-style: solid;
+  background-color: #e4e4e4;
+}
+
+.popUpMessage{
+  display: none;
+  position: relative;
+  margin: 0px;
+  height: 80px;
+  top: 30px;
+  width: 300px;
+  border-style: solid;
+  background-color: #e4e4e4;
+}
+
+.respondepopUpMessage{
+  position: absolute;
+  top: 20px;
+  right: 120px;
+  width: 24px;
+  height: 24px;
+}
+
+.exitpopUpMessage{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+.popUpMessage > span{
+}
+
+.notification{
+  display: flex;
+}
+.notification > img{
+  position: absolute;
+  top: 15px;
+  right: 120px;
+  width: 24px;
+  height: 24px;
+}
+.phoneWidget span{
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
+
+.phoneWidget p{
+  position: relative;
+  top: 15px;
+  left: 10px;
+}
+
+.phoneWidget > img{
+  position: relative;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  float: right;
+  right: 10px;
+  cursor: pointer;
+}
+
+
+
+/*Flash*/
+@-moz-keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Firefox */
+@-webkit-keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Webkit */
+@-ms-keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* IE */
+@keyframes blink {0%{opacity:1;} 50%{opacity:0;} 100%{opacity:1;}} /* Opera and prob css3 final iteration */
+
+.photoTab{
+  list-style-type: none;
+  margin: -20px;
+  height: 50px;
+  width: 1140px;
+  padding: 0;
+  overflow: hidden;
+  background-color: #1D6FA9;
+  border-bottom: black;
+  border-bottom-style: solid;
+  border-width: 1.5px;
+}
+
+.photosTab {
+    float: left;
+    padding-bottom: 10px;
+}
+
+.photosTab p{
+    cursor: pointer;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    position: relative;
+    bottom: 15px;
+}
+
+.photosTab{
+  float: left;
+  padding-bottom: 10px;
+  height: 40px;
+}
+
+.closeButtonPhoto{
+  list-style-type: none;
+  float: right;
+  margin: 10px;
+}
+.closeButtonPhoto img{
+  cursor: pointer;
+  float: right;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  bottom: 5px;
+}
+.photoContent{
+  position: absolute;
+  top: 51px;
+  left: 0px;
+  height: 540px;
+  width: 1140px;
+  /*background-image: url("photoBackground.jpg");*/
+  background-color: #e4e4e4;
+  background-size: 1142px 591px;
+  background-repeat: no-repeat;
+}
+
+.countDown{
+  display: none;
+  position: relative;
+  top: 200px;
+  left: 540px;
+  height: 80px;
+  width: 80px;
+}
+
+.countDown span{
+  font-size: 50px;
+}
+.photoSpan{
+  position: relative;
+  top: 200px;
+  left: 30%;
+  font-size: 22pt;
+}
+.photoButton{
+  position: absolute;
+  top: 430px;
+  left: 520px;
+  height: 80px;
+  width: 80px;
+  border-radius: 150px;
+	-webkit-border-radius: 150px;
+	-moz-border-radius: 150px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+
+.takePicture{
+  position: relative;
+  top: 13px;
+  left: 15px;
+  height: 50px;
+  width: 50px;
+}
+
+.savedPhoto{
+  position: absolute;
+  overflow-y: auto;
+  top: 52px;
+  left: 0px;
+  height: 539px;
+  width: 1140px;
+  /*background-image: url("photoBackground.jpg");*/
+  background-color: #e4e4e4;
+  background-size: 1142px 591px;
+  background-repeat: no-repeat;
+}
+
+.selectedPhotos{
+  display: none;
+  position: absolute;
+  top: 470px;
+  left: 800px;
+  width: 300px;
+  height: 40px;
+  border: 2px solid;
+  padding:10px;
+}
+
+.selectedPhotos span{
+  position: relative;
+  top: 5px;
+}
+.sendedPicture{
+  margin: 5px;
+  width: 300px;
+  height: 200px;
+}
+.sendSelectedPhotos{
+  position: relative;
+  left: 20px;
+  background-color: #00b300;
+  border-radius: 10px;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  /* border-style: solid; */
+  border-width: 2px;
+  border-color: black;
+  color: white;
+}
+.sendSelectedPhotos p{
+  position: relative;
+  bottom: 10px;
+}
+.checked1{
+  display: none;
+  position: relative;
+  top: 180px;
+  left: 260px;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+.checked2{
+  display: none;
+  position: relative;
+  top: 180px;
+  left: 260px;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+.checked3{
+  display: none;
+  position: relative;
+  top: 180px;
+  left: 260px;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+}
+.photo {
+  position: relative;
+  display: none;
+  margin: 20px;
+  float: left;
+  height: 300px;
+  left: 43px;
+}
+
+.photo > img {
+    width: 300px;
+    height: 200px;
+    border: solid;
+    border-radius: 15px;
+}
+
+.warningMessageWindow{
+  left: 35%;
+  top: 35%;
+  position: absolute;
+  width: 300px;
+  height: 150px;
+  padding: 10px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  background: #e4e4e4;
+  display: none;
+
+  z-index: 3;
+}
+
+.textWarningMessage{
+    height: 70%;
+    text-align: center;
+}
+.textWarningMessage span{
+    margin-top: 5px;
+}
+.warningButtonsMessage {
+    display: flex;
+    flex-wrap: wrap;
+    height: 30%;
+    position: relative;
+    left: 8px;
+}
+
+.leftM, .rightM{
+  position: relative;
+  height: 30px;
+  width: 130px;
+  text-align: center;
+  margin-left: 10px;
+  margin-right: 10px;
+  cursor: pointer;
+  border-radius: 15px;
+  /*border-style: solid;*/
+  border-width: 1px;
+  border-color: black;
+  color: white;
+  padding-top: 10px;
+  margin-left: 5px;
+}
+
+.leftM {
+    background-color: #b30000;
+}
+
+.rightM {
+    background-color: #00b300;
+}
+
+.phonewrapper, .selectedText{
+  width: 290px;
+  position: relative;
+  left: 290px;
+  top: -110px;
+  border-style: solid;
+  border-width: thin;
+  text-align: center;
+  cursor: pointer;
+  background-color: white;
+}
+
+.phonewrapper {
+  height: 130px;
+}
+
+.selectedPhone {
+  display: none;
+}
+
+.clearPhoneNot {
+  display: none;
+  position: relative;
+  height: 30px;
+  width: 30px;
+  top: 30px;
+  left: 270px;
+}
+
+.messageWidget{
+  position: absolute;;
+  left: 550px;
+  display: none;
+  height: 535px;
+  width: 840px;
+
+  background-color: #e4e4e4;
+
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+}
+
+.messageWidget conversation{
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.messageWidgetTab {
+  list-style-type: none;
+  height: 50px;
+  width: 840px;
+  overflow: hidden;
+  background-color: #1D6FA9;
+  border-bottom: black;
+  border-bottom-style: solid;
+  border-width: 1.5px;
+}
+
+.messageWidgetTab p{
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  position: relative;
+  bottom: 15px;
+}
+
+.closeTempMessage{
+  cursor: pointer;
+  float: right;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 5px;
+  right: 10px;
+}
+
+.help {
+  position: absolute;
+  display: none;
+  left: 1800px;
+  top: 50px;
+  height: 80px;
+  width: 80px;
+}
+
+.helpDiv {
+  position: absolute;
+  left: 100px;
+  top: 550px;
+  display: none;
+  height: 200px;
+  width: 400px;
+  background-color: #e4e4e4;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: black;
+  z-index: 10;
+}
+
+.helpP{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  position: relative;
+  bottom: 15px;
+}
+
+.helpDiv img{
+  cursor: pointer;
+  float: right;
+  width: 40px;
+  height: 40px;
+  position: relative;
+  top: 5px;
+  right: 10px;
+}
+
+.helpTab {
+  list-style-type: none;
+  height: 50px;
+  width: 400px;
+  overflow: hidden;
+  background-color: #1D6FA9;
+  border-bottom: black;
+  border-bottom-style: solid;
+  border-width: 1.5px;
+}
+
+.helpMessage p{
+  position: relative;
+  margin: 15px 15px 7px 15px;
+  top: 5px;
+}
+
+.prevHelp, .nextHelp {
+  top: 0;
+  margin: 0 5px 0 5px;
+}
